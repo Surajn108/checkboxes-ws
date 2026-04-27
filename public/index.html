@@ -82,13 +82,14 @@
         }
     </style>
 </head>
+
 <body>
     <h1>CheckBoxes</h1>
     <p class="p">A tiny Playground of clickable squares. Tick away. </p>
     <div id="container">
 
     </div>
-
+    <script src="/socket.io/socket.io.js"></script> <!-----IMP-->
     <script>
         const container = document.getElementById("container");
         const CHECKBOX_COUNT = 100;
@@ -96,6 +97,12 @@
         new Array(CHECKBOX_COUNT).fill(null).forEach((_ , index)=>{
             const input = document.createElement("input");
             input.type = "checkbox";
+
+            input.addEventListener("onChange", (event)=>{
+                const checked = event.target.checked;
+                console.log('Checked index' , {index , checked});
+            })
+
             container.appendChild(input);
         })
     </script>

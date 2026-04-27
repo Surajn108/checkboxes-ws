@@ -1,17 +1,25 @@
 import http from "node:http";
 import path from "node:path";
+
 import express from "express";
-//import { Server } from "socket.io";
+import { Server } from "socket.io";
+import { Socket } from "node:dgram";
 
 const PORT = Number(process.env.PORT ?? 8000);
 
 
 async function main() {
+
     const app = express();
-    app.use(express.static(path.resolve('./public')));
-
     const server = http.createServer(app);
+    const io = new Server();
 
+    io.attach(server);
+    io.on('connection' , (Socket)=>{
+        console.log(`Socket initializes` , {id :Socket.id});
+    })
+
+    app.use(express.static(path.resolve('./public')));
     app.get('/health', (req , res)=>{
         res.json({Healthy:true}); 
     })
