@@ -17,6 +17,10 @@ async function main() {
     io.attach(server);
     io.on('connection' , (Socket)=>{
         console.log(`Socket initializes` , {id :Socket.id});
+
+        Socket.on('client:checkbox:change' , (data)=>{
+            console.log(`Socket : ${Socket.id}:client:checkbox:change` , data);
+        })
     })
 
     app.use(express.static(path.resolve('./public')));

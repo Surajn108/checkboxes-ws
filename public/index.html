@@ -91,6 +91,8 @@
     </div>
     <script src="/socket.io/socket.io.js"></script> <!-----IMP-->
     <script>
+        const socket = io();
+
         const container = document.getElementById("container");
         const CHECKBOX_COUNT = 100;
 
@@ -101,6 +103,7 @@
             input.addEventListener("onChange", (event)=>{
                 const checked = event.target.checked;
                 console.log('Checked index' , {index , checked});
+                socket.emit('client:checkbox:change' , {index , checked});
             })
 
             container.appendChild(input);
