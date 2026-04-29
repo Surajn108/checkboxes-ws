@@ -1,7 +1,7 @@
 1 Million Checkbox Project
 
 🚀 Overview
-![Uploading Screenshot 2026-04-29 at 11.47.31 AM.png…]()
+<img width="1280" height="800" alt="Screenshot 2026-04-29 at 11 47 31 AM" src="https://github.com/user-attachments/assets/695afda5-8bde-4f63-8194-353259119c3d" />
 
 
 A high-performance web app that handles 1,000,000 checkboxes with efficient rendering and real-time updates.
